@@ -58,7 +58,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  @HostListener('onAddComment', ['$event'])
   onAddComment(event) {
     console.log("Don't touch my bacon!", event);
 

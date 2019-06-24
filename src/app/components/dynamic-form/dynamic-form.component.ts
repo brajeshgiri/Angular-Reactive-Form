@@ -23,7 +23,7 @@ import { FieldConfig, Validator } from "../../field.interface";
   <div  dynamicField [field]="field" [group]="form">
   </div>
   
-  <div><button (click)="onAddComments(field)"> Add Comments</button></div>
+  <div><a (click)="onAddComments(field)"> Add Comments</a></div>
   </ng-container>
   </form>
   `,
@@ -55,7 +55,6 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-
     this.form = this.createControl();
     this.onChanges();
   }
@@ -79,7 +78,7 @@ export class DynamicFormComponent implements OnInit, OnChanges {
         this.bindValidations(field.validations || [])
       );
       control.valueChanges.subscribe(term => {
-        this.onRulesTrigger.emit(term);
+        this.onRulesTrigger.emit({ value: term, field });
       })
       group.addControl(field.name, control);
     });
