@@ -11,8 +11,6 @@ import data from './formFields';
 export class AppComponent implements OnInit {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
   ngOnInit() {
-    // this.form.fields.values = this.formData;
-    // this.onChanges();
     console.log("data", data)
     this.regConfig = data.map(d => {
 
@@ -30,7 +28,8 @@ export class AppComponent implements OnInit {
 
   regConfig: FieldConfig[] = [];
   formData = {
-    email: "brajesh@gmail.com"
+    email: "brajesh@gmail.com",
+    age: 30
   }
   submit(value: any) {
     this.form.form.reset();
